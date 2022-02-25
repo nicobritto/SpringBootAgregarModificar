@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaft.org" 
+      xmlns="http://www.w3.org/1999/html">
+    <head>
+        <title>Datos de la persona</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Datos de la persona</h1>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+        <form th:action="@{/guardar}" method="post" th:object="${persona}">
+            <label for="nombre">Nombre </label>
+            <input type="text" name="nombre" th:field="*{nombre}" />
+            <br/>
+            <label for="apellido">apellido</label>
+            <input type="text" name="apellido" th:field="*{apellido}" />
+            <br/>
+            <label for="email">Email</label>
+            <input type="email" name="email" th:field="*{email}" />
+            <br/>
+            <label for="telefono">Telefono</label>
+            <input type="tel" name="telefono" th:field="*{telefono}" /><!--th:field selescciona el atributo de persona que seria telefono -->
+            <input type="submit" name="guardar" value="guardar"/>
+            
+            
+        </form>
+    </body>
+</html>
