@@ -14,18 +14,26 @@
                     <th>Apellido</th>
                     <th>Email</th>
                     <th>Teléfono</th>
+                <tr>Editar</tr>
+                <tr>Eliminar</tr>
                 </tr>
                 <tr th:each="persona:${personas}">
                     <td th:text="${persona.nombre}">Mostrar Nombre</td>
                     <td th:text="${persona.apellido}">Mostrar Apellido</td>
                     <td th:text="${persona.email}">Mostrar Email</td>
                     <td th:text="${persona.telefono}">Mostrar Teléfono</td>
+                    <!-- a editar le agregamos el id de la persona  -->
+                    <!-- a editar le agregamos el id de la persona ="@{/editar/} + ${persona.idPersona}"   -->
+                    <td><a th:href="@{/editar/} + ${persona.idPersona}" th:text="Editar"/></td>
+                    <!-- otra forma de pasarle id de la persona es  el ejeplo de eliminar en el ejeplo de editar hace la misma funcion pero esta es otra forma -->
+                    <!-- en en controladorInicio hat que podificar el getMappign  -->
+                    <td><a th:href="@{/eliminar(idPersona=${persona.idPersona})}" th:text="Eliminar"/></td>
                 </tr>
             </table>
         </div>
         <div th:if="${personas == null or personas.empty}">
             La lista de personas está vacía
         </div>
-        
+
     </body>
 </html>

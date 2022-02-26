@@ -34,9 +34,9 @@ public class PersonaServiceImpl  implements PersonaService{
 
     @Override
     @Transactional(readOnly = true)//lleve readOnly porque no modifica los datos
-    public void encontrarPersona(Persona persona) {
-        //revisdar puede dar problemas
-         personaDao.findById(persona.getIdPersona()).orElse(null);// si no encuentra el objeto contrado con orElse(null); va regresar nul
+    public  Persona  encontrarPersona(Persona persona) {
+        // si no encuentra el objeto contrado con orElse(null); va regresar nul
+       return personaDao.findById(persona.getIdPersona()).orElse(null);
     }
     
     

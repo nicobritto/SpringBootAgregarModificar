@@ -40,4 +40,18 @@ public class ControladorInicio {
         return "redirect:/";
     }
 
+    @GetMapping("/editar/{idPersona}")//{idPersona} este atributo tiene q ser igual que el atributo dedo Persona tambien recibe el id de la persona seleccionada
+    public String editar(Persona persona, Model model) {
+        persona = personaServise.encontrarPersona(persona);
+        model.addAttribute("persona", persona);
+        return "modificar";
+    }
+
+    @GetMapping("/eliminar")
+    //se creo un objeto persona con el idPersona que recibe de el boton eliminar
+    public String eliminar(Persona persona) {
+        personaServise.eliminar(persona);
+        return "redirect:/";
+    }
+
 }
